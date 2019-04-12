@@ -54,7 +54,8 @@ void manager::start()
 
 
     emit SignalTcpStartListen();
-
+    emit SignalOpenLaserSerialport(LASER_SERIALPORT_NUMBER_2, 115200);
+    laser_timer->start(500);
 
 
 }
@@ -192,9 +193,9 @@ void manager::SlotHandleLaserResults(QByteArray data)
 
     data_to_pc = my_protocol->ConvertLaserData(data);
 
-    //qDebug() << data_to_pc ;
+    qDebug() << data_to_pc ;
 
-    my_connector->SendData(data_to_pc);
+    //my_connector->SendData(data_to_pc);
 }
 
 void manager::SlotHandleGyroscopeResults(QByteArray data)
