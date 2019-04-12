@@ -104,8 +104,8 @@ void manager::SlotHandleTcpResults(QByteArray data)
         {
         case HOLDER_START_RECEIVE_CMD:
             qDebug() << "cmd:holder start receive cmd" ;
-            emit SignalOpenHolderSerialport(HOLDER_SERIALPORT_NUMBER,2400);
-            emit SignalOpenGyroscopeSerialport(GYROSCOPE_SERIALPORT_NUMBER, 115200);
+            emit SignalOpenHolderSerialport(HOLDER_SERIALPORT_NUMBER_1,2400);
+            emit SignalOpenGyroscopeSerialport(GYROSCOPE_SERIALPORT_NUMBER_4, 115200);
             emit SignalGyroscopeAngleInit();
 
             //加判断：成功与失败!
@@ -124,7 +124,7 @@ void manager::SlotHandleTcpResults(QByteArray data)
             break;
         case LASER_START_SEND_DATA:
             qDebug() << "cmd:laser start send data" ;
-            emit SignalOpenLaserSerialport(LASER_SERIALPORT_NUMBER, 115200);
+            emit SignalOpenLaserSerialport(LASER_SERIALPORT_NUMBER_2, 115200);
             laser_timer->start(500);
             ack_data = my_protocol->LaserResponse(0, 1);
             qDebug() << "ack_data:" << ack_data << endl;

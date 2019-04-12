@@ -14,11 +14,11 @@ Laser::~Laser()
 
 void Laser::SingleMeasure()
 {
-    //gpio_ctrl(unsigned int cmd);
+    gpio_ctrl(UART1_485_HIGH);
     QString cmd;
     cmd = "0103000F0002F408";
     send(Hexarray(cmd));
-    //gpio_ctrl(unsigned int cmd);
+    gpio_ctrl(UART1_485_LOW);
 }
 
 void Laser::AutomaticContinuousMeasure()
