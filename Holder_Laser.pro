@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     protocol.cpp \
     serialport.cpp \
     manager.cpp \
-    gyroscope.cpp
+    gyroscope.cpp \
+    usart_ctrl_api.c
 
 HEADERS += \
     connectwithpc.h \
